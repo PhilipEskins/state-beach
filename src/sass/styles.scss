@@ -6,3 +6,19 @@ body {
   color: $primary-font-color;
   background-color: skyblue;
 }
+
+.navbar {
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    li {
+      display: flex;
+    }
+  }
+}
+
+.welcome {
+  display: flex;
+  justify-content: center;
+}
