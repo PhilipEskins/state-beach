@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -7,16 +8,33 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
 
+  devtool: 'eval-source-map',
+  devServer: {
+    contentBase: './dist'
+  },
+
   module: {
 
     rules: [
-      // configurations for loaders will go here!
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      }
+
     ]
 
   },
 
   plugins: [
-     // configurations for plugins will go here!
+    new HtmlWebpackPlugin({
+      inject: 'body',
+      template: './src/index.html',
+      filename: 'index.html'
+    })
  ]
 
 };
