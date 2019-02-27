@@ -1,24 +1,115 @@
 $font-stack: Helvetica, sans-serif;
-$primary-font-color: red;
+$primary-font-color: white;
+
+@mixin gridSetup {
+  display: grid;
+  grid-template-columns: 275px 275px 275px;
+  grid-gap: 3em;
+  margin: 0 3em;
+  justify-content: center;
+}
+
+@mixin boxSetup($h) {
+  height: $h;
+  border: 5px solid white;
+  border-radius: 15px;
+}
 
 body {
   font: 100% $font-stack;
   color: $primary-font-color;
   background-color: skyblue;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+
+nav {
+  background-image: url("../img/driftwood.jpg");
+  background-size: cover;
 }
 
 .navbar {
+  width: 1000px;
+  display: grid;
+  grid-template-columns: 2fr .7fr 2fr;
+  margin: auto;
+  font-size: 25px;
+  color: white;
   ul {
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
+    margin: 0;
+    padding: 0;
     li {
       display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-weight: bold;
     }
+  }
+  img {
+    margin: auto;
+    margin-bottom: .5em;
   }
 }
 
 .welcome {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
+  background-image: url("../img/banner.png");
+  height: 345px;
+  color: white;
+  // text-shadow: 0px 0px 10px #000000;
+  width: 100%;
+  margin: auto;
+  margin-top: -67px;
+  border-top: solid white 10px;
+  border-bottom: solid white 10px;
+  color: white;
+  h1 {
+    margin-top: 0;
+    margin-bottom: .5em;
+    font-family: Helvetica;
+    font-size: 150px;
+    font-weight: bolder;
+    opacity: .5;
+    margin-top: 190px;
+    color: skyblue;
+    letter-spacing: -8;
+    line-height: 80%;
+  }
+  span {
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+}
+
+.resources {
+  @include gridSetup;
+  margin-bottom: 3em;
+  .box {
+    @include boxSetup(175px);
+    p{
+      font-size: 40px;
+      text-align: center;
+    }
+  }
+}
+
+.away {
+  text-align: center;
+}
+
+.cityInfo {
+  @include gridSetup;
+  .box {
+    @include boxSetup(400px);
+    p{
+      font-size: 20px;
+      text-align: center;
+    }
+  }
 }
