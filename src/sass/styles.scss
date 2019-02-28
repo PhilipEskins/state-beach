@@ -126,7 +126,7 @@ nav {
     background-color: beige;
     justify-content: center;
     align-items: center;
-    height: 300px;
+    // height: 300px;
     margin: 15px;
 
   }
@@ -159,5 +159,15 @@ nav {
     align-self: center;
     width: 100%;
     height: auto;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .gallery{
+    grid-template-columns: 100%;
+    .box {
+      margin: 0px;
+      margin-top: 10px;
+    }
   }
 }
